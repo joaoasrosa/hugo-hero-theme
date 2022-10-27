@@ -10,7 +10,10 @@
             {{ if .Site.Data.contact.email }}
             <li><strong>Email: </strong><a href="mailto:{{ .Site.Data.contact.email }}">
                 {{ .Site.Data.contact.email }}</a></li>
-              {{ end }}
+            {{ end }}
+            {{ if .Site.Data.contact.chamberOfCommerce }}
+            <li><strong>Chamber of Commerce: </strong>{{ .Site.Data.contact.chamberOfCommerce }}</li>
+            {{ end }}
           </ul>
           <ul>
             <li class="zerostatic"></li>
