@@ -18,7 +18,8 @@
   }
   .hero-text {
     flex: 0;
-    color: #ffffff;
+    //color: #ffffff;
+    color: $black;
     margin: auto 0;
     h1 {
       font-size: 3rem;
