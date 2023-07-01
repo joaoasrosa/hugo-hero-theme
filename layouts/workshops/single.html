@@ -21,10 +21,8 @@
                 <a href="{{.Params.workshopTickets}}" class="button">Buy now</a>
                 <a href="/contact" class="button" style="text-transform: none;">Contact for in-company</a>
                 {{ else }}
-                <h4>Information</h4>
                   {{ range $elem_key, $elem_val := .Params.workshopLocations }}
-                  <br />
-                  <h5><b>{{ $elem_val.location }}</b></h5>
+                  <p><h5><b>{{ $elem_val.location }}</b></h5></p>
                   <ul style="list-style: disc;">
                     <li><strong>Date:</strong> {{$elem_val.date}}</li>
                     <li><strong>Time:</strong> {{$elem_val.time}}</li>
@@ -33,7 +31,7 @@
                   </ul>
                   <a href="{{$elem_val.tickets}}" class="button">Buy now</a>
                   <a href="/contact" class="button" style="text-transform: none;">Contact for in-company</a>
-                  <br />
+                  <br /><br />
                   {{ end }}
                 {{ end }}
             </div>
