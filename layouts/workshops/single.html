@@ -10,7 +10,9 @@
       <div class="service service-single">
         <div class="content">
             <div style="border-color: #b7b7b7; border-style: solid; padding: 30px 20px 30px 20px; margin: 0px 0px 20px 20px; float: right;" class="col-12 col-sm-12 col-md-8 col-lg-4">
-                {{ if eq .Params.workshopSingleLocation true }}
+              {{ if eq .Params.workshopContactOnly true }}  
+                <a href="/contact" class="button" style="text-transform: none;">Contact for in-company</a>
+              {{ else if eq .Params.workshopSingleLocation true }}
                 <h4>Information:</h4>
                 <ul style="list-style: disc;">
                     <li><strong>Date:</strong> {{.Params.workshopDate}}</li>
@@ -20,20 +22,20 @@
                 </ul>
                 <a href="{{.Params.workshopTickets}}" class="button">Buy now</a>
                 <a href="/contact" class="button" style="text-transform: none;">Contact for in-company</a>
-                {{ else }}
-                  {{ range $elem_key, $elem_val := .Params.workshopLocations }}
-                  <p><h5><b>{{ $elem_val.location }}</b></h5></p>
-                  <ul style="list-style: disc;">
-                    <li><strong>Date:</strong> {{$elem_val.date}}</li>
-                    <li><strong>Time:</strong> {{$elem_val.time}}</li>
-                    <li><strong>Location:</strong> <a href="{{$elem_val.venueLink}}" target="_blank">{{$elem_val.venue}}</a></li>
-                    <li><strong>Price:</strong> {{$elem_val.price}}</li>
-                  </ul>
-                  <a href="{{$elem_val.tickets}}" class="button">Buy now</a>
-                  <a href="/contact" class="button" style="text-transform: none;">Contact for in-company</a>
-                  <br /><br />
-                  {{ end }}
+              {{ else }}
+                {{ range $elem_key, $elem_val := .Params.workshopLocations }}
+                <p><h5><b>{{ $elem_val.location }}</b></h5></p>
+                <ul style="list-style: disc;">
+                  <li><strong>Date:</strong> {{$elem_val.date}}</li>
+                  <li><strong>Time:</strong> {{$elem_val.time}}</li>
+                  <li><strong>Location:</strong> <a href="{{$elem_val.venueLink}}" target="_blank">{{$elem_val.venue}}</a></li>
+                  <li><strong>Price:</strong> {{$elem_val.price}}</li>
+                </ul>
+                <a href="{{$elem_val.tickets}}" class="button">Buy now</a>
+                <a href="/contact" class="button" style="text-transform: none;">Contact for in-company</a>
+                <br /><br />
                 {{ end }}
+              {{ end }}
             </div>
             {{.Content}}
         </div>
